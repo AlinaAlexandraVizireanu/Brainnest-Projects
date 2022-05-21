@@ -1,0 +1,19 @@
+h1{
+    color:aqua;
+}
+
+h2{
+    color:rgb(239, 38, 38)
+}
+
+h3{
+    color: #2cd931;
+}
+
+h4{
+    color:hsl(299, 82%, 43%);
+}
+
+div{
+    background-color: #ece0aa;
+}

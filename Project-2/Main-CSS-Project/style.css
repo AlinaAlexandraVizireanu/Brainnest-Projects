@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(./Roboto/Roboto-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url(./Roboto/Roboto-Light.ttf) format('truetype');
+}
+
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #1F2937;
+    height: 450px;
+    margin: 0 150px;
+}
+
+.container {
+    position: relative;
+    color: white;
+    width: 940px;
+    margin: 0px auto;
+}
+
+nav li a {
+    font-size: 18px;
+    color: #e5e7eb;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+p.logo {
+    margin-top: 0px;
+    padding-top: 20px;
+    font-size: 24px;
+    color: #F9FAF8;
+}
+
+nav {
+    position: absolute;
+    left: 450px;
+    top: 10px;
+}
+
+nav li {
+    display: inline;
+}
+
+p.mainText {
+    font-size: 48px;
+    font-weight: 800;
+    color: #F9FAF8;
+    margin-bottom: 20px;
+}
+
+p.secondaryText {
+    font-size: 18px;
+    color: #e5e7eb;
+}
+
+.container1 {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+}
+
+img.imageHeader {
+    position: absolute;
+    top: 35px;
+    left: 550px;
+    width: 350px;
+    height: 200px;
+}
+
+.container1 button {
+    border: 2px solid #3882F6;
+    border-radius: 10px;
+    width: 100px;
+    height: 35px;
+    color: white;
+    background-color: #3882F6;
+}
+
+.image {
+    width: 160px;
+    float: left;
+    margin: 10px 20px;
+}
+
+.image figure {
+    margin: 16px 0px;
+}
+
+.image figure img {
+    border: 4px solid #3882F6;
+    border-radius: 10px;
+}
+
+.section1 p {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #1F2937;
+}
+
+.section1 {
+    height: 350px;
+    margin: 0 150px;
+}
+
+.wraper,
+.section2 figure {
+    height: 250px;
+    width: 800px;
+    margin: 0px auto;
+}
+
+.section2 {
+    background-color: #E5E7EB;
+    height: 300px;
+    margin: 0 150px;
+}
+
+.section2 figure {
+    top: 50px;
+    position: relative;
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+    color: #1F2937;
+}
+
+.section2 blockquote {
+    margin-bottom: 0px;
+}
+
+.section2 figcaption {
+    font-style: normal;
+    font-weight: 800;
+    text-align: end;
+    margin-right: 50px;
+}
+
+.section3 {
+    background-color: #3882F6;
+    height: 150px;
+    width: 940px;
+    margin: 100px auto;
+    border-radius: 10px;
+}
+
+p.mainText1 {
+    float: left;
+    font-size: 24px;
+    color: #F9FAF8;
+    margin: 50px 50px 5px 50px;
+}
+
+p.secondaryText1 {
+    float: left;
+    clear: both;
+    font-family: 'Roboto-Light', sans-serif;
+    color: #F9FAF8;
+    margin: 5px 50px 50px 50px;
+}
+
+.section3 button {
+    position: relative;
+    top: 57.5px;
+    left: 400px;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 120px;
+    height: 35px;
+    color: #E5E7EB;
+    font-weight: bold;
+    background-color: #3882F6;
+}
+
+footer {
+    background-color: #1F2937;
+    color: #E5E7EB;
+    height: 100px;
+    margin: 0 150px;
+}
+
+footer p {
+    position: relative;
+    top: 40.5px;
+    text-align: center;
+}

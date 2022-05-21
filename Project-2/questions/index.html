@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Questions</title>
+</head>
+
+<body>
+    <a href="../../index.html">Back to main page</a>
+    <ol>
+        <h3>
+            <li>What are the main differences between external, internal, and inline CSS?</li>
+        </h3>
+        <ul>
+            <li>External CSS has a separate file which is linked in the head of HTML document.</li>
+            <li>Internal CSS is declared inside &lt;style&gt;&lt;/style&gt; element, in the head of HTML document.</li>
+            <li>Inline CSS is declared inside an element as an attribute where style is the attribute and properties
+                plus their values are the attribute value.</li>
+        </ul>
+        <h3>
+            <li>What is the syntax for class and ID selectors?</li>
+        </h3>
+        <ul>
+            <li>Syntax for class selectors: .class</li>
+            <li>Syntax for ID selectors: #idName</li>
+        </ul>
+        <h3>
+            <li>How would you apply a single rule to two different selectors?</li>
+        </h3>
+        <p>selector1, selector2 {property:value;}</p>
+        <h3>
+            <li>Given an element that has an id of title and a class of primary, how would you use both attributes for a
+                single rule?</li>
+        </h3>
+        <p>element.primary.#title{property:value;}</p>
+        <h3>
+            <li>What does the descendant combinator do?</li>
+        </h3>
+        <p>The descendant combinator is represented by a single space between selectors and has effect on the last
+            selector only if it's nested inside of ancestor.</p>
+        <h3>
+            <li>Between a rule that uses one class selector and a rule that uses three type selectors, which rule has
+                the higher specificity?</li>
+        </h3>
+        <p>The rule which includes the class.</p>
+        <h3>
+            <li>From inside to outside, what is the order of box-model properties?</li>
+        </h3>
+        <ol>
+            <li>Content</li>
+            <li>Padding</li>
+            <li>Border</li>
+            <li>Margin</li>
+        </ol>
+        <h3>
+            <li>What does the box-sizing CSS property do?</li>
+        </h3>
+        <p>Box-sizing property sets how the total width and height of an element is calculated. IT can have the value
+            content-box which gives the default CSS box-sizing behavior or it can have the value border-box which makes
+            the value of the border and padding to shrink to the element width and height.</p>
+        <h3>
+            <li>What is the difference between the standard and alternative box model?</li>
+        </h3>
+        <p> <strong>The standard box model</strong> is represented by the given dimensions to the content box and if
+            there will be specified a
+            size for padding or border, that size will be added to the size of the content box.<br>
+            <strong>The alternative box model</strong> is represented by the box that is seen on the screen, this means
+            that the size of the padding and border will be included in the size of the content box.
+        </p>
+        <h3>
+            <li>Would you use margin or padding to create more space between 2 elements?</li>
+        </h3>
+        <p>I would use margins as this is placed in the extremity of the box.</p>
+        <h3>
+            <li>Would you use margin or padding to create more space between the contents of an element and its border?
+            </li>
+        </h3>
+        <p>I would use padding because this property is placed between content box and border.</p>
+        <h3>
+            <li>Would you use margin or padding if you wanted two elements to overlap each other?</li>
+        </h3>
+        <p>I would use margin.</p>
+        <h3>
+            <li>What is the difference between a block element and an inline element?</li>
+        </h3>
+        <p><strong>A block element</strong> is placed on a single line, below and above other block element.<br>
+            <strong>An inline element</strong> can be places bside another element.
+        </p>
+        <h3>
+            <li>What is the difference between an inline element and an inline-block element?</li>
+        </h3>
+        <p><strong>Inline elements</strong> have width and height ignored.<br>
+            <strong>Inline-block elements</strong> behave like an inline element with width, height, margins and
+            paddings are respected.
+        </p>
+        <h3>
+            <li>Is an h1 block or inline?</li>
+        </h3>
+        <p>Is a block element.</p>
+        <h3>
+            <li>Is button block or inline?</li>
+        </h3>
+        <p>Is an inline element.</p>
+        <h3>
+            <li>Is div block or inline?</li>
+        </h3>
+        <p>Is a block element.</p>
+        <h3>
+            <li>Is span block or inline?</li>
+        </h3>
+        <p>Is an inline element.</p>
+        <h3>
+            <li>What’s the difference between a flex container and a flex item?</li>
+        </h3>
+        <p><strong>A flex container</strong> is an element that has the property display:flex.<br>
+            <strong>A flex item</strong> is any element located inside the flex container.
+        </p>
+        <h3>
+            <li>How do you create a flex item?</li>
+        </h3>
+        <p>A flex item can be created in the same way as the flex container, that means it can be both flex item or flex
+            container.</p>
+        <h3>
+            <li>What are the 3 values defined in the shorthand flex property?</li>
+        </h3>
+        <ol>
+            <li>flex-grow</li>
+            <li>flex-shrink</li>
+            <li>flex-basis</li>
+        </ol>
+        <h3>
+            <li>How do you make flex items arrange themselves vertically instead of horizontally?</li>
+        </h3>
+        <p>Assigning the value to be column on flex-direction property.</p>
+        <h3>
+            <li>What is the difference between justify-content and align-items?</li>
+        </h3>
+        <p><strong>justify-content</strong> is applied for MAIN AXIS.<br>
+            <strong>align-items</strong> is applied for CROSS AXIS.
+        </p>
+        <h3>
+            <li>How do you use flexbox to completely center a div inside a flex container?</li>
+        </h3>
+        <p>By defining the following properties to the container: justify-content:center and align-items: center.</p>
+        <h3>
+            <li>What’s the difference between justify-content: space-between and justify-content: space-around?</li>
+        </h3>
+        <p><strong>justify-content: space-between</strong> is taking in account only the space between elements, not the
+            space between the extremities.<br>
+            <strong>justify-content: space-around</strong> is assigning an equal space between the elements and also
+            between extremities.
+        </p>
+    </ol>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+body{
+    background-color: #f5ebe0;
+}
+a{
+    color: #f72585;
+}
+
+p{
+    color: #35357f;
+    font-family: cursive, sans-serif;
+    font-size: 20px;
+}
+img{
+    float: left;
+    margin-right: 20px;
+    border-radius: 50px;
+}
+header{
+    padding: 10px;
+    border: 2px solid grey;
+}
