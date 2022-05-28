@@ -10,95 +10,106 @@
     font-weight: 300;
 }
 
-body {
-    margin: 0px;
+* {
     font-family: 'Roboto', sans-serif;
+    margin: 0px;
 }
 
 header {
     background-color: #1F2937;
-    height: 450px;
+    height: 50vh;
 }
 
 .container {
-    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     color: white;
-    width: 940px;
+    width: 80%;
+    height: 90%;
     margin: 0px auto;
+}
+
+.container1 {
+    height: 50%;
+    width: 99%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
 }
 
 nav li a {
     font-size: 18px;
     color: #e5e7eb;
     text-decoration: none;
-    margin: 0 5px;
+    margin: 0 1em;
+}
+
+nav, p.logo{
+    display: flex;
+    align-items: center;
 }
 
 p.logo {
-    margin-top: 0px;
-    padding-top: 20px;
     font-size: 24px;
     color: #F9FAF8;
-}
-
-nav {
-    position: absolute;
-    left: 450px;
-    top: 10px;
 }
 
 nav li {
     display: inline;
 }
 
-p.mainText {
-    font-size: 48px;
-    font-weight: 800;
-    color: #F9FAF8;
-    margin-bottom: 20px;
-}
-
-p.secondaryText {
-    font-size: 18px;
-    color: #e5e7eb;
-}
-
-.container1 {
-    position: relative;
-    display: inline-block;
-    width: 500px;
-}
-
-img.imageHeader {
-    position: absolute;
-    top: 35px;
-    left: 550px;
-    width: 350px;
-    height: 200px;
-}
-
 .container1 button {
-    border: 2px solid #3882F6;
-    border-radius: 10px;
-    width: 100px;
-    height: 35px;
+    border: 0.5em solid #3882F6;
+    border-radius: 0.7em;
+    width: 7.5em;
+    height: 2.5em;
     color: white;
     background-color: #3882F6;
 }
 
+p.mainText {
+    width: 50%;
+    font-size: 48px;
+    font-weight: 800;
+    color: #F9FAF8;
+    margin-bottom: 0.2em;
+}
+
+p.secondaryText {
+    width: 50%;
+    font-size: 18px;
+    color: #e5e7eb;
+}
+
+img.imageHeader {
+    width: 25em;
+    height: 15em;
+    align-self: flex-end;
+}
+
+.wraper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .image {
-    width: 160px;
-    float: left;
-    margin: 10px 20px;
+    width: 10em;
+    margin: 1.5em 2em;
 }
 
 .image figure {
-    margin: 16px 0px;
+    margin: 1.5em 0px;
 }
 
 .image figure img {
     border: 4px solid #3882F6;
-    border-radius: 10px;
+    border-radius: 0.5em;
+}
+
+.section1 {
+    margin-top: 1.5em;
 }
 
 .section1 p {
@@ -108,28 +119,22 @@ img.imageHeader {
     color: #1F2937;
 }
 
-.section1 {
-    height: 350px;
-}
-
-.wraper,
-.section2 figure {
-    height: 250px;
-    width: 800px;
-    margin: 0px auto;
-}
-
 .section2 {
+    height: 20rem;
     background-color: #E5E7EB;
-    height: 300px;
+    margin: 2.5em 0em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .section2 figure {
-    top: 50px;
-    position: relative;
+    width: 80%;
     font-size: 36px;
     font-weight: 300;
     font-style: italic;
+    font-weight: 300;
     color: #1F2937;
 }
 
@@ -141,53 +146,58 @@ img.imageHeader {
     font-style: normal;
     font-weight: 800;
     text-align: end;
-    margin-right: 50px;
 }
 
 .section3 {
     background-color: #3882F6;
-    height: 150px;
-    width: 940px;
-    margin: 100px auto;
-    border-radius: 10px;
+    height: 10em;
+    width: 50em;
+    margin: 5em auto;
+    border-radius: 1em;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 p.mainText1 {
-    float: left;
     font-size: 24px;
     color: #F9FAF8;
-    margin: 50px 50px 5px 50px;
+    margin: 1.5em 1.5em 0.2em 1.5em;
 }
 
 p.secondaryText1 {
-    float: left;
-    clear: both;
+    font-family: 'Roboto-Light', sans-serif;
     font-weight: 300;
     color: #F9FAF8;
-    margin: 5px 50px 50px 50px;
+    margin: 0.5em 2.5em 2.5em 2.5em;
 }
 
 .section3 button {
-    position: relative;
-    top: 57.5px;
-    left: 400px;
-    border: 2px solid white;
-    border-radius: 10px;
-    width: 120px;
-    height: 35px;
+    border: 0.2em solid white;
+    border-radius: 0.7em;
+    width: 8em;
+    height: 2.5em;
     color: #E5E7EB;
     font-weight: bold;
     background-color: #3882F6;
+    margin: 0em 0em 7em 7em;
 }
 
 footer {
     background-color: #1F2937;
     color: #E5E7EB;
-    height: 100px;
+    height: 7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 footer p {
-    position: relative;
-    top: 40.5px;
     text-align: center;
+}
+
+@media(max-width:1900px) {
+    .container1 {
+        height: 70%;
+        width: 98%;
+    }
 }
