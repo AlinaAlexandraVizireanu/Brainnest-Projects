@@ -50,6 +50,7 @@ function playRound(playerSelection, round) {
     }
 }
 
+
 function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt('Enter your option: rock, paper or scissors:').toLowerCase();
@@ -59,12 +60,13 @@ function game() {
         }
     }
     console.log(`Player: ${playerScore} & Computer ${computerScore}`);
+    if (playerScore > computerScore) {
+        console.log("You win the game!");
+    } else if (playerScore < computerScore) {
+        console.log("You lose the game!");
+    } else {
+        console.log("It's draw!");
+    }
 }
-if (playerScore > computerScore) {
-    console.log("You win the game!");
-} else if (playerScore < computerScore) {
-    console.log("You lose the game!");
-} else {
-    console.log("It's draw!");
-}
+
 game();
