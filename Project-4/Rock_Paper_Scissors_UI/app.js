@@ -1,7 +1,4 @@
-const buttonPaper = document.querySelector('.paper');
-const buttonRock = document.querySelector('.rock');
-const buttonScissors = document.querySelector('.scissors');
-
+const buttons = document.querySelectorAll("button");
 function computerPlay() {
     const value = ['rock', 'paper', 'scissors'];
     const randomValue = value[Math.floor(Math.random() * value.length)];
@@ -14,9 +11,8 @@ function isInputValid(playerSelection) {
 
 let playerScore = 0;
 let computerScore = 0;
-let playerSelection = buttonPaper.value;
 let computerSelection;
-
+let playerSelection = buttons.textContent;
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     console.log(`Your selection is : ${playerSelection}`);
@@ -52,6 +48,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-buttonPaper.addEventListener('click', playRound);
-buttonRock.addEventListener('click', playRound);
-buttonScissors.addEventListener('click', playRound);
+for(let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", () => {
+        playRound(buttons[i].textContent)
+    })
+}
