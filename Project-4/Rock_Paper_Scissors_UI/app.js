@@ -12,7 +12,7 @@ function isInputValid(playerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 let computerSelection;
-let playerSelection = buttons.textContent;
+
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     console.log(`Your selection is : ${playerSelection}`);

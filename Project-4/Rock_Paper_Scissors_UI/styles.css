@@ -1,0 +1,60 @@
+body{
+    background-color: #14213d;
+}
+
+a:visited{
+    color: white;
+}
+
+.content{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    width: 7%;
+    height: 5%;
+    background: none;
+    border: 2px solid;
+    font-size: 1em;
+    transition: all 0.1s;
+}
+
+#paper{
+    color: #c77dff;
+}
+
+#rock{
+    margin: auto 2% auto 2%;
+    color: #fb6f92;
+}
+
+#scissors{
+    color: #4895ef;
+}
+
+#paper:hover{
+    border-color: #e0aaff;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.5em #e0aaff;
+    transform: translateY(-0.10em);
+    cursor: pointer;
+}
+
+#rock:hover{
+    border-color: #ffb3c6;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.5em #ffb3c6;
+    transform: translateY(-0.10em);
+    cursor: pointer;
+}
+
+#scissors:hover{
+    border-color: #4cc9f0;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.5em #4cc9f0;
+    transform: translateY(-0.10em);
+    cursor: pointer;
+}
