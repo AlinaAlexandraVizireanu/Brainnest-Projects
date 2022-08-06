@@ -11,10 +11,31 @@
 
 <body>
     <a href="../../index.html">Back to main page</a>
-    <div class="content">
-        <button id="paper">paper</button>
-        <button id="rock">rock</button>
-        <button id="scissors">scissors</button>
+    <div class="mainContent">
+        <div class="round">
+            <h1 id="roundText">ROUND</h1>
+        </div>
+        <div class="displayScore">
+            <h2 id="playerScoreText">Player's score</h2>
+            <h2 id="computerScoreText">Computer's score</h2>
+        </div>
+        <div class="optionsText">
+            <h1>Choose your option</h1>
+            <h1>Computer's option</h1>
+        </div>
+        <div class="content">
+            <div class="contentPlayer">
+                <button id="paper">paper</button>
+                <button id="rock">rock</button>
+                <button id="scissors">scissors</button>
+            </div>
+            <div class="contentComputer">
+                <img id="paperHand" src="./images/paper.png" alt="Paper hand sign from rock scissors paper game">
+                <img id="rockHand" src="./images/rock.png" alt="Rock hand sign from rock scissors paper game">
+                <img id="scissorsHand" src="./images/scissors.png"
+                    alt="Scissors hand sign from rock scissors paper game">
+            </div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

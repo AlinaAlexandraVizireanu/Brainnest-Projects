@@ -1,41 +1,74 @@
-body{
-    background-color: #14213d;
+@font-face {
+    font-family: 'Roboto';
+    src: url(./Roboto/Roboto-Regular.ttf) format('truetype');
 }
 
-a:visited{
+body {
+    background-color: #14213d;
+    font-family: 'Roboto', sans-serif;
+}
+
+a:visited {
     color: white;
 }
 
-.content{
-    height: 90vh;
+.mainContent {
+    height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+}
+
+.contentPlayer,
+.contentComputer {
+    display: flex;
+    width: 50vw;
+    height: 30vh;
     align-items: center;
     justify-content: center;
 }
 
-button{
-    width: 7%;
-    height: 5%;
+.optionsText, .displayScore {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+}
+
+.round{
+    height: 20vh;
+}
+
+button {
+    width: 150px;
+    height: 50px;
     background: none;
     border: 2px solid;
     font-size: 1em;
     transition: all 0.1s;
 }
 
-#paper{
+#paper {
     color: #c77dff;
 }
 
-#rock{
-    margin: auto 2% auto 2%;
+#rock {
+    margin-left: 2%;
+    margin-right: 2%;
     color: #fb6f92;
 }
 
-#scissors{
+#scissors {
     color: #4895ef;
 }
 
-#paper:hover{
+#paper:hover {
     border-color: #e0aaff;
     color: white;
     box-shadow: 0 0.5em 0.5em -0.5em #e0aaff;
@@ -43,7 +76,7 @@ button{
     cursor: pointer;
 }
 
-#rock:hover{
+#rock:hover {
     border-color: #ffb3c6;
     color: white;
     box-shadow: 0 0.5em 0.5em -0.5em #ffb3c6;
@@ -51,10 +84,15 @@ button{
     cursor: pointer;
 }
 
-#scissors:hover{
+#scissors:hover {
     border-color: #4cc9f0;
     color: white;
     box-shadow: 0 0.5em 0.5em -0.5em #4cc9f0;
     transform: translateY(-0.10em);
     cursor: pointer;
+}
+
+#rockHand {
+    margin-left: 5%;
+    margin-right: 5%;
 }

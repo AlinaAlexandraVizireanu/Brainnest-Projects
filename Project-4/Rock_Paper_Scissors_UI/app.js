@@ -1,55 +1,82 @@
 const buttons = document.querySelectorAll("button");
+const paper = document.querySelector("#paperHand");
+const rock = document.querySelector("#rockHand");
+const scissors = document.querySelector("#scissorsHand");
+const round = document.querySelector("#roundText");
+const playerScoreText = document.querySelector("#playerScoreText");
+const computerScoreText = document.querySelector("#computerScoreText");
+
 function computerPlay() {
     const value = ['rock', 'paper', 'scissors'];
     const randomValue = value[Math.floor(Math.random() * value.length)];
     return randomValue;
 }
 
-function isInputValid(playerSelection) {
-    return /rock|paper|scissors/g.test(playerSelection);
-}
-
 let playerScore = 0;
 let computerScore = 0;
+let roundCounter = 0;
 let computerSelection;
+let resultGame;
 
-function playRound(playerSelection, computerSelection) {
-    computerSelection = computerPlay();
-    console.log(`Your selection is : ${playerSelection}`);
-    console.log(`PC selection is : ${computerSelection}`);
-    if (isInputValid(playerSelection)) {
-        if (playerSelection == computerSelection) {
-            console.log('Draw!');
-            playerScore += 1;
-            computerScore += 1;
-        } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-            console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-            playerScore += 1;
-        } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-            console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-            playerScore += 1;
-        } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-            console.log(`You Won! ${playerSelection} beats ${computerSelection}`);
-            playerScore += 1;
-        } else {
-            console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-            computerScore += 1;
-        }
-        console.log(`Player: ${playerScore} & Computer ${computerScore}`);
-        if (playerScore > computerScore) {
-            console.log("You win the game!");
-        } else if (playerScore < computerScore) {
-            console.log("You lose the game!");
-        } else {
-            console.log("It's draw!");
-        }
+function playRound(playerSelection) {
+    roundCounter += 1;
+    round.textContent = "ROUND " + roundCounter;
+    computerChoice = computerPlay();
+    computerSelection = computerOption();
+
+    if (playerSelection == 'rock' && computerChoice == 'scissors') {
+        playerScore += 1;
+    } else if (playerSelection == 'scissors' && computerChoice == 'paper') {
+        playerScore += 1;
+    } else if (playerSelection == 'paper' && computerChoice == 'rock') {
+        playerScore += 1;
     } else {
-        console.log('Please enter a valid input!');
+        computerScore += 1;
+    }
+
+    computerScoreText.textContent = `Computer score is ${computerScore}`;
+    playerScoreText.textContent = `Player score is ${playerScore}`;
+    
+    if (roundCounter == 5) {
+        if (playerScore > computerScore) {
+            resultGame = "You win the game!";
+        } else if (playerScore < computerScore) {
+            resultGame = "You lose the game!"
+        } else {
+            resultGame = "It's draw!";
+        }
+        playerScore = 0;
+        computerScore = 0;
+        roundCounter = 0;
+        round.textContent = resultGame;
     }
 }
 
-for(let i = 0; i < buttons.length; i++) {
+
+
+for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", () => {
         playRound(buttons[i].textContent)
     })
+}
+
+
+function computerOption() {
+    switch (computerChoice) {
+        case 'paper':
+            rock.style.visibility = 'hidden';
+            scissors.style.visibility = 'hidden';
+            paper.style.visibility = 'visible';
+            break;
+        case 'rock':
+            rock.style.visibility = 'visible';
+            scissors.style.visibility = 'hidden';
+            paper.style.visibility = 'hidden';
+            break;
+        case 'scissors':
+            rock.style.visibility = 'hidden';
+            scissors.style.visibility = 'visible';
+            paper.style.visibility = 'hidden';
+            break;
+    }
 }
