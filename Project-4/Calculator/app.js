@@ -51,6 +51,9 @@ for (let redButton of redButtons) {
 }
 
 function displayOperand() {
+    if (displayValue == '0') {
+        displayValue = '';
+    }
     displayValue += this.textContent;
     display.textContent = displayValue.substring(0, 18);
 }
