@@ -1,136 +1,133 @@
-const display = document.querySelector('.display');
-const buttons = document.querySelectorAll('.buttonActive');
-const purpleButtons = document.querySelectorAll('.color1');
-const blueButtons = document.querySelectorAll('.color2');
-const redButtons = document.querySelectorAll('.color3');
-const operands = document.querySelectorAll('.operand');
-const operators = document.querySelectorAll('.operator');
-const equal = document.querySelector('.equal');
-const clear = document.querySelector('.clear');
-const deleteButton = document.querySelector('.deleteButton');
-const decimal = document.querySelector('.decimal');
+const display = document.querySelector(".display");
+const buttons = document.querySelectorAll(".buttonActive");
+const purpleButtons = document.querySelectorAll(".color1");
+const blueButtons = document.querySelectorAll(".color2");
+const redButtons = document.querySelectorAll(".color3");
+const operands = document.querySelectorAll(".operand");
+const operators = document.querySelectorAll(".operator");
+const equal = document.querySelector(".equal");
+const clear = document.querySelector(".clear");
+const deleteButton = document.querySelector(".deleteButton");
+const decimal = document.querySelector(".decimal");
 
-let operator = null;
-let firstOperand = null;
-let secondOperand = null;
+let operator = "";
+let firstOperand = "";
+let secondOperand = "";
 let result = 0;
-let displayValue = '';
+let displayValue = "";
 
 for (let operand of operands) {
-    operand.addEventListener('click', displayOperand);
+  operand.addEventListener("click", displayOperand);
 }
 
 for (let operator of operators) {
-    operator.addEventListener('click', operate);
+  operator.addEventListener("click", operate);
 }
 
-equal.addEventListener('click', displayResult);
+equal.addEventListener("click", displayResult);
 
-clear.addEventListener('click', allClear);
+clear.addEventListener("click", allClear);
 
-deleteButton.addEventListener('click', deleteNumber);
+deleteButton.addEventListener("click", deleteNumber);
 
-decimal.addEventListener('click', addDecimal);
+decimal.addEventListener("click", addDecimal);
 
 for (let purpleButton of purpleButtons) {
-    purpleButton.addEventListener('click', function () {
-        purpleButton.classList.add('color1:active');
-    });
+  purpleButton.addEventListener("click", function () {
+    purpleButton.classList.add("color1:active");
+  });
 }
 
 for (let blueButton of blueButtons) {
-    blueButton.addEventListener('click', function () {
-        blueButton.classList.add('color2:active');
-    });
+  blueButton.addEventListener("click", function () {
+    blueButton.classList.add("color2:active");
+  });
 }
 
 for (let redButton of redButtons) {
-    redButton.addEventListener('click', function () {
-        redButton.classList.add('color3:active');
-    });
+  redButton.addEventListener("click", function () {
+    redButton.classList.add("color3:active");
+  });
 }
 
 function displayOperand() {
-    if (displayValue == '0') {
-        displayValue = '';
-    }
-    displayValue += this.textContent;
-    display.textContent = displayValue.substring(0, 18);
+  displayValue += this.innerText;
+  display.innerText = displayValue.substring(0, 18);
 }
 
 function operate() {
-    if (firstOperand == null) {
-        firstOperand = displayValue;
-        displayValue = '';
-    } else {
-        secondOperand = displayValue;
-        displayValue = '';
+  if (firstOperand == "") {
+    firstOperand = display.innerText;
+    displayValue = "";
+  } else {
+    secondOperand = displayValue;
+    displayValue = "";
 
-        switch (operator) {
-            case "+":
-                result = Number(firstOperand) + Number(secondOperand);
-                break;
-            case "-":
-                result = Number(firstOperand) - Number(secondOperand);
-                break;
-            case "*":
-                result = Number(firstOperand) * Number(secondOperand);
-                break;
-            case "/":
-                result = Number(firstOperand) / Number(secondOperand);
-                break;
-        }
-        firstOperand = result;
-        display.textContent = result;
+    switch (operator) {
+      case "+":
+        result = Number(firstOperand) + Number(secondOperand);
+        break;
+      case "-":
+        result = Number(firstOperand) - Number(secondOperand);
+        break;
+      case "*":
+        result = Number(firstOperand) * Number(secondOperand);
+        break;
+      case "/":
+        result = Number(firstOperand) / Number(secondOperand);
+        break;
     }
-    operator = this.textContent;
+    firstOperand = result;
+    display.innerText = result;
+  }
+  operator = this.innerText;
 }
 
 function displayResult() {
-    secondOperand = displayValue;
-    displayValue = '';
-    switch (operator) {
-        case "+":
-            result = Number(firstOperand) + Number(secondOperand);
-            break;
-        case "-":
-            result = Number(firstOperand) - Number(secondOperand);
-            break;
-        case "*":
-            result = Number(firstOperand) * Number(secondOperand);
-            break;
-        case "/":
-            result = Number(firstOperand) / Number(secondOperand);
-            break;
-    }
-    display.textContent = result;
-    firstOperand = '';
+  secondOperand = displayValue;
+  displayValue = "";
+  switch (operator) {
+    case "+":
+      result = Number(firstOperand) + Number(secondOperand);
+      break;
+    case "-":
+      result = Number(firstOperand) - Number(secondOperand);
+      break;
+    case "*":
+      result = Number(firstOperand) * Number(secondOperand);
+      break;
+    case "/":
+      result = Number(firstOperand) / Number(secondOperand);
+      break;
+  }
+  display.innerText = result;
+  firstOperand = "";
 }
 
 function allClear() {
-    display.textContent = '0';
-    firstOperand = '';
-    secondOperand = '';
-    operator = '';
-    displayValue = '';
+  display.innerText = "0";
+  firstOperand = "";
+  secondOperand = "";
+  operator = "";
+  displayValue = "";
 }
 
 function deleteNumber() {
-    if (display.textContent.length == 1) {
-        display.textContent = '0';
+  if (display.innerText.length == 1) {
+    display.innerText = "0";
+  }
+  if (display.innerText != "0") {
+    if (display.innerText.length > 1) {
+      display.innerText = display.innerText.slice(0, -1);
     }
-    if (display.textContent != '0') {
-        if (display.textContent.length > 1) {
-            display.textContent = display.textContent.slice(0, -1);
-        }
-    }
-    displayValue = display.textContent;
+  }
+  displayValue = display.innerText;
 }
 
 function addDecimal() {
-    // Display only one decimal point
-    if (display.textContent.indexOf(".") < 0) {
-        displayValue += this.textContent;
-        display.textContent = displayValue;
-    }
+  // Display only one decimal point
+  if (display.innerText.indexOf(".") < 0) {
+    displayValue += this.innerText;
+    display.innerText = displayValue;
+  }
 }
