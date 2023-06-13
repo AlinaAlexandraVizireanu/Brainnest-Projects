@@ -62,9 +62,15 @@ for (let redButton of redButtons) {
 }
 
 function displayOperand() {
+  if (display.innerText === "0") {
+    displayValue = "";
+    purpleButtons[0].innerText = "AC";
+  }
   displayValue += this.innerText;
   display.innerText = displayValue.substring(0, 18);
-  purpleButtons[0].innerText = "C";
+  if (display.innerText != "0") {
+    purpleButtons[0].innerText = "C";
+  }
 }
 
 function operate() {
