@@ -6,7 +6,6 @@ const redButtons = document.querySelectorAll(".color3");
 const operands = document.querySelectorAll(".operand");
 const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector(".equal");
-const clear = document.querySelector(".clear");
 const deleteButton = document.querySelector(".deleteButton");
 const decimal = document.querySelector(".decimal");
 
@@ -26,8 +25,6 @@ for (let operator of operators) {
 
 equal.addEventListener("click", displayResult);
 
-clear.addEventListener("click", allClear);
-
 deleteButton.addEventListener("click", deleteNumber);
 
 decimal.addEventListener("click", addDecimal);
@@ -35,6 +32,20 @@ decimal.addEventListener("click", addDecimal);
 for (let purpleButton of purpleButtons) {
   purpleButton.addEventListener("click", function () {
     purpleButton.classList.add("color1:active");
+    switch (purpleButton.innerText) {
+      case "AC":
+        allClear();
+        break;
+      case "C":
+        allClear();
+        break;
+      case "+/-":
+        positiveNegative();
+        break;
+      case "%":
+        divideByHundred();
+        break;
+    }
   });
 }
 
@@ -53,6 +64,7 @@ for (let redButton of redButtons) {
 function displayOperand() {
   displayValue += this.innerText;
   display.innerText = displayValue.substring(0, 18);
+  purpleButtons[0].innerText = "C";
 }
 
 function operate() {
@@ -106,6 +118,7 @@ function displayResult() {
 
 function allClear() {
   display.innerText = "0";
+  purpleButtons[0].innerText = "AC";
   firstOperand = "";
   secondOperand = "";
   operator = "";
@@ -130,4 +143,16 @@ function addDecimal() {
     displayValue += this.innerText;
     display.innerText = displayValue;
   }
+}
+
+function positiveNegative() {
+  if (display.innerText != "0" && display.innerText.indexOf("-") === -1) {
+    display.innerText = "-" + display.innerText;
+  } else if (display.innerText != "0") {
+    display.innerText = display.innerText.slice(1);
+  }
+}
+
+function divideByHundred() {
+  display.innerText = Number(display.innerText) / 100;
 }
