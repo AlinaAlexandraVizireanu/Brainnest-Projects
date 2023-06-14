@@ -15,6 +15,65 @@ let secondOperand = "";
 let result = 0;
 let displayValue = "";
 
+window.addEventListener("keypress", function (e) {
+  /// In this part of the project, due to the keyword 'this' which doesn't work in this scope,
+  /// I've wrote the code directly here from the each named functions which contains the keyword 'this'.
+  let reg1 = /\d/g;
+  let reg2 = /\+|-|\/|\*/g;
+  if (reg1.test(e.key)) {
+    if (display.innerText === "0") {
+      displayValue = "";
+      purpleButtons[0].innerText = "AC";
+    }
+    displayValue += e.key;
+    display.innerText = displayValue.substring(0, 18);
+    if (display.innerText != "0") {
+      purpleButtons[0].innerText = "C";
+    }
+  } else if (reg2.test(e.key)) {
+    if (firstOperand == "") {
+      firstOperand = display.innerText;
+      displayValue = "";
+    } else {
+      secondOperand = displayValue;
+      displayValue = "";
+
+      switch (operator) {
+        case "+":
+          result = Number(firstOperand) + Number(secondOperand);
+          break;
+        case "-":
+          result = Number(firstOperand) - Number(secondOperand);
+          break;
+        case "*":
+          result = Number(firstOperand) * Number(secondOperand);
+          break;
+        case "/":
+          result = Number(firstOperand) / Number(secondOperand);
+          break;
+      }
+      firstOperand = result;
+      display.innerText = result;
+    }
+    operator = e.key;
+  } else if (e.key === ".") {
+    if (display.innerText.indexOf(".") < 0) {
+      displayValue += e.key;
+      display.innerText = displayValue;
+    }
+  } else if (e.key === "Enter" || e.key === "=") {
+    displayResult();
+  } else if (e.key === "%") {
+    divideByHundred();
+  }
+});
+
+window.addEventListener("keyup", function (e) {
+  if (e.key === "Backspace") {
+    deleteNumber();
+  }
+});
+
 for (let operand of operands) {
   operand.addEventListener("click", displayOperand);
 }
@@ -120,6 +179,10 @@ function displayResult() {
   }
   display.innerText = result;
   firstOperand = "";
+  if (display.innerText === "0") {
+    displayValue = "";
+    purpleButtons[0].innerText = "AC";
+  }
 }
 
 function allClear() {
