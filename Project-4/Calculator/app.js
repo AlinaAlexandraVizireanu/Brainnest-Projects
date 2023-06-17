@@ -161,7 +161,12 @@ function operate() {
 }
 
 function displayResult() {
+  let lastValueOfSecond = secondOperand;
   secondOperand = displayValue;
+  if (displayValue === "") {
+    secondOperand = lastValueOfSecond;
+    firstOperand = result;
+  }
   displayValue = "";
   switch (operator) {
     case "+":
