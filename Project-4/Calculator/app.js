@@ -14,6 +14,7 @@ let firstOperand = "";
 let secondOperand = "";
 let result = 0;
 let displayValue = "";
+let displayWithDecimal = "";
 
 window.addEventListener("keypress", function (e) {
   /// In this part of the project, due to the keyword 'this' which doesn't work in this scope,
@@ -125,7 +126,13 @@ function displayOperand() {
     displayValue = "";
     purpleButtons[0].innerText = "AC";
   }
-  displayValue += this.innerText;
+  if (displayWithDecimal === "") {
+    displayValue += this.innerText;
+  }
+  if (display.innerText.indexOf(".") > 0 && displayWithDecimal != "") {
+    displayValue = displayWithDecimal + this.innerText;
+    displayWithDecimal = "";
+  }
   display.innerText = displayValue.substring(0, 18);
   if (display.innerText != "0") {
     purpleButtons[0].innerText = "C";
@@ -182,7 +189,13 @@ function displayResult() {
       result = Number(firstOperand) / Number(secondOperand);
       break;
   }
-  display.innerText = result;
+  if (result === 0 && secondOperand != "") {
+    display.innerText = secondOperand;
+  } else if (operator === "") {
+    display.innerText = "0";
+  } else {
+    display.innerText = result;
+  }
   firstOperand = "";
   if (display.innerText === "0") {
     displayValue = "";
@@ -212,10 +225,14 @@ function deleteNumber() {
 }
 
 function addDecimal() {
+  let lastStoredValue = display.innerText;
   // Display only one decimal point
-  if (display.innerText.indexOf(".") < 0) {
+  if (display.innerText.indexOf(".") < 0 && displayValue != "") {
     displayValue += this.innerText;
     display.innerText = displayValue;
+  } else if (display.innerText.indexOf(".") < 0 && displayValue === "") {
+    displayWithDecimal = lastStoredValue + this.innerText;
+    display.innerText = displayWithDecimal;
   }
 }
 
