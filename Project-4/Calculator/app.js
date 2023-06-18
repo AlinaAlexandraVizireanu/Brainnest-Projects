@@ -26,7 +26,13 @@ window.addEventListener("keypress", function (e) {
       displayValue = "";
       purpleButtons[0].innerText = "AC";
     }
-    displayValue += e.key;
+    if (displayWithDecimal === "") {
+      displayValue += e.key;
+    }
+    if (display.innerText.indexOf(".") > 0 && displayWithDecimal != "") {
+      displayValue = displayWithDecimal + e.key;
+      displayWithDecimal = "";
+    }
     display.innerText = displayValue.substring(0, 18);
     if (display.innerText != "0") {
       purpleButtons[0].innerText = "C";
@@ -58,9 +64,14 @@ window.addEventListener("keypress", function (e) {
     }
     operator = e.key;
   } else if (e.key === ".") {
-    if (display.innerText.indexOf(".") < 0) {
+    let lastStoredValue = display.innerText;
+    // Display only one decimal point
+    if (display.innerText.indexOf(".") < 0 && displayValue != "") {
       displayValue += e.key;
       display.innerText = displayValue;
+    } else if (display.innerText.indexOf(".") < 0 && displayValue === "") {
+      displayWithDecimal = lastStoredValue + e.key;
+      display.innerText = displayWithDecimal;
     }
   } else if (e.key === "Enter" || e.key === "=") {
     displayResult();
